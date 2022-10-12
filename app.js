@@ -1,21 +1,19 @@
 document.title = "Doragi";
 
-const h1 = document.querySelector("div.hello h1");
+// 1번째
+// const loginForm = document.querySelector("#login-form");
+// const loginInput = loginForm.querySelector("input");
+// const loginButton = loginForm.querySelector("button");
 
-console.log(h1);
+// 2번째
+const loginInput = document.querySelector("#login-form input");
+const loginButton =  document.querySelector("#login-form button");
 
-// JS 가 HTML을 건드리면 HTML을 바라보는 CSS가 변경된 HTML에 맞춘다.
-// h1.className는 getter이면서 setter
-function handleh1click() {
-    const clickedClass = "clicked";
-    if (h1.className===clickedClass) {
-        h1.className = "";
-    }
-    else {
-        h1.className = clickedClass;
+function onLoginBtnClick() {
+    const username = loginInput.value;
+    console.log(username)
     }
 };
 
 
-
-h1.addEventListener("click",handleh1click);
+loginButton.addEventListener('click',onLoginBtnClick);
