@@ -8,13 +8,38 @@ document.title = "Doragi";
 // 2번째
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greetings = document.querySelector("#greetings");
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) {
     event.preventDefault();
-    // const username = loginInput.value;
-    console.log(loginInput.value)
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    paintGreetings();
+    localStorage.setItem(USERNAME_KEY, username);
     }
 
-//서브밋은 엔터 or 클릭으로 작동
-loginForm.addEventListener("submit",onLoginSubmit);
+function paintGreetings() {
+    greetings.classList.remove(HIDDEN_CLASSNAME);
+    greetings.innerText = `Hello ${savedUsername} nice to meet you!`;
+}
 
+
+//서브밋은 엔터 or 클릭으로 작동
+// loginForm.addEventListener("submit",onLoginSubmit);
+
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+console.log(savedUsername);
+
+if (savedUsername===null) {
+    //show the form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+}
+
+else {
+    //show the greetings
+    paintGreetings();
+}
