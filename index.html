@@ -3,14 +3,38 @@
 <title>Document</title>
 </head>
 <body>
+    <h2 id="clock">00:00:00</h2>
 <form id="login-form" class="hidden">
     <input required maxlength="15" type="text" value="nico" placeholder="이름을 입력해 주세요"/>
     <input type="submit" value="로그인">
 </form>
 <h1 id="greetings" class="hidden"></h1>
-<h2 id="clock">00:00:00</h2>
+<form id="todo-form">
+    <input type="text" placeholder="오늘의 할일을 적고 Enter를 눌러주세요!" required>
+</form>
+
+<ul id="todo-list"> <!-- adding list from JS-->
+
+</ul>
+
+<div id="weather"> 
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+
+<footer id="quote">
+    <span></span>
+    <span></span>
+</footer>
+
 
 <script src="js/clock.js"></script>
+<script src="js/background.js"></script>
+<script src="js/quotes.js"></script>
 <script src="js/greeting.js"></script>
+<script src="js/todo.js"></script>
+<script src="js/weather.js"></script>
 </body>
 </html>
